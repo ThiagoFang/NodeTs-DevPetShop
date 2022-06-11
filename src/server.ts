@@ -15,11 +15,10 @@ server.engine('mustache', mustache());
 
 server.use(express.static(path.join(__dirname, '../public')));
 
-//Rotas
 server.use('/',mainRoutes);
 
 server.use((req, res) => {
-    res.send('Página não encontrada!');
+    res.render('pages/404')
 });
 
-server.listen(process.env.PORT, () => console.log(`Servidor hospedado na porta ${process.env.PORT}`));
+server.listen(process.env.PORT);
